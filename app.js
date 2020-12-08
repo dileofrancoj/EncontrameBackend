@@ -4,12 +4,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const dotenv = require("dotenv");
-const { dbConnection } = require("./database/config");
 const compression = require("compression");
 const cors = require("cors");
-dbConnection();
-
+const { dbConnection } = require("./database/config");
 dotenv.config();
+dbConnection();
 const users = require("./routes/users");
 const person = require("./routes/person");
 

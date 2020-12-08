@@ -7,6 +7,7 @@ const dbConnection = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
+    console.log("Base de datos Online");
   } catch (error) {
     console.error(error);
     throw error;
