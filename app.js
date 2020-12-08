@@ -6,7 +6,9 @@ var logger = require("morgan");
 const dotenv = require("dotenv");
 const compression = require("compression");
 const cors = require("cors");
+const { dbConnection } = require("./database/config");
 dotenv.config();
+dbConnection();
 const users = require("./routes/users");
 
 var app = express();
