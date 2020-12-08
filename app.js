@@ -4,10 +4,14 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const dotenv = require("dotenv");
+const { dbConnection } = require("./database/config");
 const compression = require("compression");
 const cors = require("cors");
+dbConnection();
+
 dotenv.config();
 const users = require("./routes/users");
+const person = require("./routes/person");
 
 var app = express();
 app.use(cors());
@@ -22,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", users);
+app.use("/person", person);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
